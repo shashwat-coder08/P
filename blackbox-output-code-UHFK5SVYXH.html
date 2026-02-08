@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Yours, My Ҩนᥱᥱͷ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        h1, h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        button {
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Praise -->
+    <div id="page1" class="page active">
+        <h1>Forever Yours, My Ҩนᥱᥱͷ</h1>
+        <p>You are the radiant light in my life, the queen who rules my heart. Ever since we became online friends just a month ago, you've brought endless joy, laughter, and warmth into my days. Your smile illuminates my world, your kindness touches my soul, and your beauty leaves me breathless. You are flawless in every way—intelligent, witty, compassionate, and utterly enchanting. I cannot envision a future without you by my side. Will you allow me to demonstrate just how deeply you mean to me?</p>
+        <button onclick="nextPage()">I Love You Too ❤️</button>
+    </div>
+
+    <!-- Page 2: Proposal -->
+    <div id="page2" class="page">
+        <h2>Ҩนᥱᥱͷ, Will You Be Mine Forever?</h2>
+        <p>I've fallen profoundly in love with you. Say yes, and let's create countless beautiful memories together!</p>
+        <button onclick="handleResponse('yes')">Of Course Yes ❤️</button>
+        <button onclick="handleResponse('no')">No 🙂‍↔️</button>
+        <p id="message" style="display: none; color: #ff1493; font-weight: bold;"></p>
+    </div>
+
+    <!-- Page 3: Celebration (Yes) -->
+    <div id="page3" class="page">
+        <h1>Yes! I Love You, Ҩนᥱᥱͷ! ❤️</h1>
+        <p>I knew already that you can't say no to me, my love! You've made me the happiest person in the world. Let's cherish our love forever.</p>
+    </div>
+
+    <script>
+        let noCount = 0;
+        const messages = [
+            "Think again, my love! You know we belong together. ❤️",
+            "Again no? Come on, say yes—I promise to make you smile every single day! 😘",
+            "Once more? My heart is yours, Ҩนᥱᥱͷ. Please say yes! 💕",
+            "Still no? You're my everything—let's be together forever! 🌹",
+            "One last try? I can't stop thinking about you. Say yes! 💖"
+        ];
+
+        function nextPage() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        }
+
+        function handleResponse(response) {
+            if (response === 'yes') {
+                document.getElementById('page2').classList.remove('active');
+                document.getElementById('page3').classList.add('active');
+            } else {
+                noCount++;
+                const msg = messages[Math.min(noCount - 1, messages.length - 1)];
+                document.getElementById('message').innerText = msg;
+                document.getElementById('message').style.display = 'block';
+                // Keep the page active until yes
+            }
+        }
+    </script>
+</body>
+</html>
